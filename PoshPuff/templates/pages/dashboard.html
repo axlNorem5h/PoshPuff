@@ -1,0 +1,32 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-neutral-800">
+<h1 class="p-4 text-2xl text-white bg-slate-500">Product and Price Dashboard</h1>
+<p class="p-2 m-2 bg-slate-200">
+     <a href="{% url 'create_product' %}" class="bg-info text-black py-3 px-5 m-3 rounded-lg">Create product</a>
+</p>
+    <h2 class="p-4 text-2xl text-white bg-slate-500 ">All Products and Prices:</h2>
+    {% for product_price in products_prices %}
+        <div class="flex pb-10 text-white">
+            <h3 class="p-2"> <span class="text-info">NAME:</span>  {{ product_price.name }}</h3>
+            <p class="p-2"><span class="text-info">DESCRIPTION:</span> {{ product_price.description }}</p>
+
+            {% if product_price.image.url %}
+                <img class="w-40 p-2" src="{{ product_price.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+
+            <p class="p-2"><span class="text-info">PRICE:</span>  {{ product_price.price.price }} {{ product_price.price.currency }}</p>
+
+            <a class="p-2 hover:text-cyan-600 text-info hover:text-xl" href="{% url 'view_product' product_price.id %}">View</a>
+            <a class="p-2 hover:text-yellow-400 text-warning hover:text-xl" href="{% url 'update_product' product_price.id %}">Edit</a>
+            <a class="p-2 hover:text-rose-700 text-danger hover:text-xl" href="{% url 'delete_product' product_price.id %}">delete</a>
+
+        </div>
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

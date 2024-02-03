@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PoshPuff</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+          <script>
+            tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    clifford: '#da373d',
+                  }
+                }
+              }
+            }
+          </script>
+        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+          rel="stylesheet" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+        <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+        <script>
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              fontFamily: {
+                sans: ["Roboto", "sans-serif"],
+                body: ["Roboto", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+              },
+            },
+            corePlugins: {
+              preflight: false,
+            },
+          };
+        </script>
+</head>
+<body>
+
+{% include 'pages/navbar.html' %}
+
+    {%block content%}
+        {#home#}
+    {%endblock%}
+
+
+
+<hr>
+
+</body>
+</html>

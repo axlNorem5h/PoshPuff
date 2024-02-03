@@ -1,0 +1,19 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Delete Product</h1>
+
+    <p>Are you sure you want to delete "{{ product.name }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="submit" name="Confirm Delete" class="bg-danger text-white py-3 px-5
+    m-3 rounded-lg" value="Confirm Delete">
+        <a href="{% url 'dashboard' %}" class="bg-warning text-white py-3 px-5 m-3 rounded-lg">Back to Dashboard</a>
+
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="bg-neutral-800 text-white">
+    <h1 class="pt-14 pl-10 text-white text-4xl uppercase text-bold ">Product Information</h1>
+
+    <div class="ml-32 py-10 text-lg">
+    <h2>Name: {{ product.name }}</h2>
+    <p>Description: {{ product.description }}</p>
+    {% if product.image.url %}
+                <img class="w-40" src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% endif %}
+
+    <p>Price: {{ product.price.price }} {{ product.price.currency }}</p>
+
+    <a href="{% url 'update_product' product.id %}" class="p-2 hover:text-cyan-600 text-warning hover:text-xl uppercase">Edit</a>
+    <a href="{% url 'delete_product' product.id %}" class="p-2 hover:text-cyan-600 text-danger hover:text-xl  uppercase">Delete</a>
+    <a href="{% url 'dashboard' %}" class="p-2 hover:text-cyan-600 text-info hover:text-xl  uppercase">Dashboard</a>
+</div>
+
+{% endblock %}

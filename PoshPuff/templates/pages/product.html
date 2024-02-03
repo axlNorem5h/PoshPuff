@@ -1,0 +1,22 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+
+ <h1 class="text-2xl bg-slate-900 p-4 text-slate-200">All Products</h1>
+
+    {% for product in products %}
+        <div class=" p-2 bg-slate-700 text-white">
+
+            <h3>Name: {{ product.name }}</h3>
+            <p>Description: {{ product.description }}</p>
+            {% if product.image.url %}
+                <img class="w-40" src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+            <p>Price: {{ product.price.price }} {{ product.price.currency }}</p>
+            <br>
+
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

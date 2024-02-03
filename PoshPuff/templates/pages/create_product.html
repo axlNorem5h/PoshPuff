@@ -1,0 +1,19 @@
+{% extends 'pages/index.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-slate-900">
+    <h1>Create Product</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ product_form.as_p }}
+        {{ price_formset.as_table }}
+        <br>
+        <a href="{% url 'dashboard' %}" class="bg-warning text-white py-3 px-5 m-3 rounded-lg">Back to Dashboard</a>
+        <input type="submit" name="Submit" class="bg-cyan-800 text-white py-3 px-5 m-3 rounded-lg" >
+    </form>
+
+</div>
+
+
+{% endblock %}
